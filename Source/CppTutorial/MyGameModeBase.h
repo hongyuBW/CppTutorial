@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
 #include "GameFramework/DefaultPawn.h"
-#include "XPPawn.h"
+#include "TimeManager.h"
 #include "MyGameModeBase.generated.h"
 
 
@@ -19,6 +19,13 @@ class CPPTUTORIAL_API AMyGameModeBase : public AGameModeBase
 
 public:
 	void InitGameState() override;
+
+	UFUNCTION(BlueprintCallable)
+	ATimeManager* GetTimeManager();
+
+protected:
+	UPROPERTY(BlueprintReadOnly)
+	ATimeManager* TimeManager = nullptr;
 
 private:
 	UPROPERTY(EditAnywhere, NoClear)
