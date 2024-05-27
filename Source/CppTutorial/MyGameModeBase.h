@@ -22,6 +22,6 @@ public:
 
 private:
 	UPROPERTY(EditAnywhere, NoClear)
-	TSubclassOf<AXPPawn> CustomPawnClass = AXPPawn::StaticClass();
+	TSubclassOf<APawn> CustomPawnClass = APawn::StaticClass();
 	
 };
