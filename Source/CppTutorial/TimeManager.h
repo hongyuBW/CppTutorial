@@ -26,18 +26,33 @@ protected:
 	UPROPERTY(BlueprintReadOnly)
 	float CurrentTimeFactor = NormalTimeFactor;
 
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	float ReverseTimeThreshold = 3.f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float ReverseTimeMaximum = 15.f;
+
+	UPROPERTY(BlueprintReadOnly)
+	float CurrentRecordedTime = .0f;
+	UPROPERTY(BlueprintReadOnly)
+	bool TimeReversalEnable = true;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
 	float GetTimeFactor();
+	UFUNCTION(BlueprintCallable)
+	float GetCurrentRecoredTime();
 
 	// Time reverse contorl
 	UFUNCTION(BlueprintCallable)
 	void BeginTimeReverse();
 	UFUNCTION(BlueprintCallable)
 	void EndTimeReverse();
+
+	UFUNCTION(BlueprintCallable)
+	void EnableTimeReversal(bool Enable);
 
 private:
 	
